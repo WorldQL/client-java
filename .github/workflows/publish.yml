@@ -1,0 +1,27 @@
+name: Java Publish
+on:
+  release:
+    types: [published]
+
+env:
+  JDK_VERSION: '17'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: temurin
+        java-version: ${{ env.JDK_VERSION }}
+        cache: maven
+    - name: Publish
+      run: mvn -B deploy --file pom.xml
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
