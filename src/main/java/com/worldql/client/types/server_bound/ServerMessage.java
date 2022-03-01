@@ -19,5 +19,5 @@ public record ServerMessage(
 
     @NotNull
     @JsonProperty("payload")
-    Payload payload
+    ServerMessagePayload payload
 ) {}

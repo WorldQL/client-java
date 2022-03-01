@@ -10,7 +10,7 @@ public record HeartbeatRequest(
     @Nullable
     @JsonProperty("no_once")
     String noonce
-) implements Payload {
+) implements ServerMessagePayload {
     @Override
     public @NotNull Request getRequest() {
         return Request.HEARTBEAT;

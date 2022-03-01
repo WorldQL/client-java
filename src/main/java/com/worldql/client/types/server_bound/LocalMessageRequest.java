@@ -22,7 +22,7 @@ public record LocalMessageRequest(
     @Nullable
     @JsonProperty("data")
     byte[] data
-) implements Payload {
+) implements ServerMessagePayload {
     @Override
     public @NotNull Request getRequest() {
         return Request.LOCAL_MESSAGE;

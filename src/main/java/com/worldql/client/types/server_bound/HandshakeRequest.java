@@ -10,7 +10,7 @@ public record HandshakeRequest(
     @Nullable
     @JsonProperty("server_auth")
     String auth
-) implements Payload {
+) implements ServerMessagePayload {
     @Override
     public @NotNull Request getRequest() {
         return Request.HANDSHAKE;

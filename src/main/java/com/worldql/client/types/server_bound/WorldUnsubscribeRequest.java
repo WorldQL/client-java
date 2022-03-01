@@ -9,7 +9,7 @@ public record WorldUnsubscribeRequest(
     @NotNull
     @JsonProperty("world_name")
     String world
-) implements Payload {
+) implements ServerMessagePayload {
     @Override
     public @NotNull Request getRequest() {
         return Request.WORLD_UNSUBSCRIBE;
