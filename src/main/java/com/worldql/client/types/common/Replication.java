@@ -1,18 +1,14 @@
 package com.worldql.client.types.common;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public enum Replication {
-    EXCEPT_SELF("except_self"),
-    INCLUDING_SELF("including_self"),
-    ONLY_SELF("only_self");
+    @JsonProperty("except_self")
+    EXCEPT_SELF,
 
-    private final String serialized;
+    @JsonProperty("including_self")
+    INCLUDING_SELF,
 
-    Replication(final String serialized) {
-        this.serialized = serialized;
-    }
-
-    @Override
-    public String toString() {
-        return this.serialized;
-    }
+    @JsonProperty("only_self")
+    ONLY_SELF,
 }
