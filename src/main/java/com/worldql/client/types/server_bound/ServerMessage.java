@@ -19,9 +19,5 @@ public record ServerMessage(
 
     @NotNull
     @JsonProperty("payload")
-    ServerMessagePayload payload
-) {
-    public ServerMessage(final @NotNull UUID sender, final @NotNull String token, final @NotNull Payload payload) {
-        this(sender, token, ServerMessagePayload.fromRequest(payload));
-    }
-}
+    Payload payload
+) {}

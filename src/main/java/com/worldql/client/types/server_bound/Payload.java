@@ -1,8 +1,10 @@
 package com.worldql.client.types.server_bound;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.jetbrains.annotations.NotNull;
 
 public interface Payload {
-    @JsonIgnore
-    ServerMessagePayload.PayloadType getType();
+    @JsonProperty("request")
+    @NotNull
+    Request getRequest();
 }
