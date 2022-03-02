@@ -59,8 +59,8 @@ public class BinaryUUID {
 
         @Override
         public UUID deserialize(JsonParser json, DeserializationContext de) throws IOException, JsonProcessingException {
-            // TODO: Implement
-            return null;
+            byte[] bytes = json.getBinaryValue();
+            return asUuid(bytes);
         }
     }
 }
