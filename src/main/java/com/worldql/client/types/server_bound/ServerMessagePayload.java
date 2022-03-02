@@ -44,7 +44,7 @@ public interface ServerMessagePayload {
         RECORD_CLEAR,
     }
 
-    @JsonProperty("request")
     @NotNull
+    @JsonProperty("request")
     Request getRequest();
 }

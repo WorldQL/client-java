@@ -2,31 +2,31 @@ package com.worldql.client.types.server_bound;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.worldql.client.types.common.Replication;
 import com.worldql.client.types.common.Vector3;
 import org.jetbrains.annotations.NotNull;
-import org.msgpack.core.annotations.Nullable;
 
 @JsonSerialize
-public record LocalMessageRequest(
+public record RecordGetRequestArea(
     @NotNull
     @JsonProperty("world_name")
     String world,
 
     @NotNull
-    @JsonProperty("position")
-    Vector3 position,
+    @JsonProperty("pos_1")
+    Vector3 pos1,
 
     @NotNull
-    @JsonProperty("replication")
-    Replication replication,
+    @JsonProperty("pos_2")
+    Vector3 pos2
+) implements RecordGetRequest, ServerMessagePayload {
 
-    @Nullable
-    @JsonProperty("data")
-    byte[] data
-) implements ServerMessagePayload {
+    @Override
+    public @NotNull Lookup getLookup() {
+        return Lookup.BY_AREA;
+    }
+
     @Override
     public @NotNull Request getRequest() {
-        return Request.LOCAL_MESSAGE;
+        return Request.RECORD_GET;
     }
 }
